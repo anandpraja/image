@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('product', 'Auth\PaymentContoller@index');
+Route::post('razorpay-payment', 'Auth\PaymentContoller@store')->name('razorpay.payment.store');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
